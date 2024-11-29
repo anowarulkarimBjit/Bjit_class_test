@@ -1,0 +1,10 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1>Add a New Airport</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Airport</button>
+    </form>
+{% endblock %}

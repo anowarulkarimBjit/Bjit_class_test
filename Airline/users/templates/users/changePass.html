@@ -1,0 +1,26 @@
+{% extends "users/user.html" %}
+{% block body %}
+    <h1>Change Your Password</h1>
+    <form action="{% url 'users:changePass' %}" method="post">
+        {% csrf_token %}
+        
+
+        <input type="password" name="old_pass" placeholder="Enter Old Password" required>
+        
+        <br>
+
+        <input type="password" name="new_pass" placeholder="Enter New Password" required>
+        
+        <br>
+
+        <input type="submit" value="Change Password">
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

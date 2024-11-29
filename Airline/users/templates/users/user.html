@@ -1,0 +1,62 @@
+{% extends "users/layout.html" %}
+{% block body %}
+<h1>welcome {{request.user.first_name}} {{request.user.last_name}}</h1>
+<ul>
+    <li>
+       Username:  {{request.user.username}}
+    </li>
+    <li>
+        Email: {{request.user.email}}
+    </li>
+</ul>
+
+<div style="max-width: 800px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; color: #333;">User Dashboard</h1>
+    <ul style="list-style: none; padding: 0; text-align: center;">
+        <li style="margin-bottom: 15px;">
+            <a href="{% url 'flight:index' %}" 
+               style="font-size: 18px; color: #3498db; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #ecf0f1; transition: background-color 0.3s, color 0.3s;">
+                View all Flights
+            </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+            <a href="{% url 'users:add_airport' %}" 
+               style="font-size: 18px; color: #3498db; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #ecf0f1; transition: background-color 0.3s, color 0.3s;">
+                Add a New Airport
+            </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+            <a href="{% url 'users:add_flight' %}" 
+               style="font-size: 18px; color: #3498db; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #ecf0f1; transition: background-color 0.3s, color 0.3s;">
+                Add a New Flight
+            </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+            <a href="{% url 'users:add_passenger' %}" 
+               style="font-size: 18px; color: #3498db; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #ecf0f1; transition: background-color 0.3s, color 0.3s;">
+                Add a New Passenger
+            </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+            <a href="{% url 'users:changePass' %}" 
+               style="font-size: 18px; color: #3498db; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #ecf0f1; transition: background-color 0.3s, color 0.3s;">
+                Change Password
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- <a href="{% url 'flight:index' %}">View all flight</a>
+<br>
+<a href="{% url 'users:add_airport' %}">Add a new Airport</a>
+<br>
+<a href="{% url 'users:add_flight' %}">Add a new Flight</a>
+<br>
+<a href="{% url 'users:add_passenger' %}">Add a new Passenger</a>
+<br>
+<a href="{% url 'users:changePass' %}">Change password</a>
+<br> -->
+
+{% if message %}
+    <h2>{{ message }}</h2>
+{% endif %}
+{% endblock %}

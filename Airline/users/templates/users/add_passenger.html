@@ -1,0 +1,10 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1>Add a New Passenger</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form (including the multi-select checkbox for flights) -->
+        <button type="submit">Add Passenger</button>
+    </form>
+{% endblock %}

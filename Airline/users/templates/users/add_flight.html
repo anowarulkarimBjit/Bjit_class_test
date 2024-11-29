@@ -1,0 +1,10 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1>Add a New Flight</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form as paragraphs (including dropdowns for origin and destination) -->
+        <button type="submit">Add Flight</button>
+    </form>
+{% endblock %}
